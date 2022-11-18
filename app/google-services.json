@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "38740582172",
+    "firebase_url": "https://dailyart-205bc-default-rtdb.firebaseio.com",
+    "project_id": "dailyart-205bc",
+    "storage_bucket": "dailyart-205bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38740582172:android:d89a751f553acef1f2a4d9",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38740582172-b2f0opnoubrtrfkpii3mjtdrqogir7s8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "2f38407280d1d1f58d957d38dc5e57647ddb95da"
+          }
+        },
+        {
+          "client_id": "38740582172-598qg8qms7a9ka2p1tbs337mib06qerl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYJDMo0knOQSnmiiL0kD9hFe3frddlrME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38740582172-598qg8qms7a9ka2p1tbs337mib06qerl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/upper_bg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#46BEE6">
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/merienda_one"
+            android:text="Morning in the forest"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/merienda_one"
+            android:text="Da Vinci"
+            android:textColor="@color/bg"
+            android:textSize="14dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/upper_bg"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="-80dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/ggg" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutTextPic"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/picture"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/textOfPic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutTextPic"
+        >
+
+        <Button
+            android:id="@+id/readFullDisc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:backgroundTint="@color/purple_700"
+            android:text="Читать полное описание"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginRight="40dp"
+            android:backgroundTint="@color/purple_700"
+            android:text="Читать про автора"
+            android:textSize="10dp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#46BEE6"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginHorizontal="30sp"
+            android:backgroundTint="#13a15c"
+            android:onClick="goHome"
+            android:text="Главная" />
+
+        <Button
+            android:id="@+id/DB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/Arhiv"
+            android:layout_toEndOf="@+id/Home"
+            android:backgroundTint="#13a15c"
+            android:onClick="WorkWithBD"
+            android:text="БД" />
+
+        <Button
+            android:id="@+id/Arhiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="30sp"
+            android:backgroundTint="#13a15c"
+            android:onClick="OpenArchive"
+            android:text="Архив" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
