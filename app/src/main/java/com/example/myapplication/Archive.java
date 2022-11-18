@@ -28,6 +28,7 @@ public class Archive extends ListActivity {
         super.onCreate(savedInstanceState);
         myBdMeneger = new MyBdMeneger(this);
 
+        mAdapter = new PictureAdapter(this);
 
         mAdapter = new PictureAdapter(this);
         setListAdapter((ListAdapter) mAdapter);
