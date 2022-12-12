@@ -4,142 +4,261 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@color/white"
     tools:context=".MainActivity">
-
-    <RelativeLayout
-        android:id="@+id/upper_bg"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#46BEE6">
-
-        <TextView
-            android:id="@+id/Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/merienda_one"
-            android:text="Morning in the forest"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/Author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="70dp"
-            android:fontFamily="@font/merienda_one"
-            android:text="Da Vinci"
-            android:textColor="@color/bg"
-            android:textSize="14dp" />
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/picture"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@+id/upper_bg"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="-80dp"
+        android:layout_marginHorizontal="0dp"
+        android:layout_marginTop="0dp"
         android:background="@color/white">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
             android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            android:background="@color/white"
             app:srcCompat="@drawable/ggg" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/layoutTextPic"
+        android:id="@+id/relativeText"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/picture"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white">
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/drawable_back">
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Morning in the forest"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <ImageButton
+            android:id="@+id/save_empty_disk"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="330dp"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:src="@drawable/free_icon_heart_shape_14815" />
+
+        <ImageButton
+            android:id="@+id/save_disk"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="330dp"
+            android:background="@android:color/transparent"
+            android:visibility="invisible"
+            android:src="@drawable/free_icon_hearts_138533"/>
+
+        <TextView
+            android:id="@+id/Author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:text="Da Vinci"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
 
         <TextView
             android:id="@+id/textOfPic"
+            android:layout_marginTop="90dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="78dp"
+            android:layout_marginLeft="5dp">
         </TextView>
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutTextPic"
-        >
 
         <Button
             android:id="@+id/readFullDisc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:backgroundTint="@color/purple_700"
-            android:text="Читать полное описание"
+            android:layout_height="35dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="0dp"
+            android:layout_below="@+id/textOfPic"
+            android:backgroundTint="@color/white"
+            android:text="Подробнее"
+            android:textColor="@color/black"
+            android:stateListAnimator="@null"
             android:textSize="10dp" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
-            android:layout_marginRight="40dp"
-            android:backgroundTint="@color/purple_700"
-            android:text="Читать про автора"
-            android:textSize="10dp"/>
-
     </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeText"
+        android:id="@+id/fraza"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="Об авторе: "
+        android:textColor="@color/black"
+        android:textSize="14dp"/>
 
 
     <RelativeLayout
+        android:id="@+id/Author_biogr"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="#46BEE6"
-        android:orientation="horizontal">
+        android:layout_height="120dp"
+        android:layout_below="@+id/fraza"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/drawable_back">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/photo_of_author"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/white"/>
+
+        <TextView
+            android:id="@+id/Author_Name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:text="Константин Иванович Айвазовский"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/Author_years_life"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/Author_Name"
+            android:text="1000 - 2000"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
 
         <Button
-            android:id="@+id/Home"
+            android:id="@+id/readFullBiog"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginHorizontal="30sp"
-            android:backgroundTint="#13a15c"
-            android:onClick="goHome"
-            android:text="Главная" />
+            android:layout_height="35dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="85dp"
+            android:backgroundTint="@color/white"
+            android:text="Подробнее"
+            android:textColor="@color/black"
+            android:stateListAnimator="@null"
+            android:textSize="10dp" />
 
-        <Button
-            android:id="@+id/DB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toStartOf="@+id/Arhiv"
-            android:layout_toEndOf="@+id/Home"
-            android:backgroundTint="#13a15c"
-            android:onClick="WorkWithBD"
-            android:text="БД" />
 
-        <Button
-            android:id="@+id/Arhiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginHorizontal="30sp"
-            android:backgroundTint="#13a15c"
-            android:onClick="OpenArchive"
-            android:text="Архив" />
 
 
     </RelativeLayout>
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:columnCount="4"
+        android:background="@color/my_blue"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goHome"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/home"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Home"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Главная"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/like"
+                android:onClick="OpenFavorites"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/like"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Избранное"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/archive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="OpenArchive"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/archive" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/archive"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Архив"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/DB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/database"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:onClick="WorkWithBD" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/DB"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Данные"/>
+        </RelativeLayout>
+
+
+
+    </GridLayout>
 </RelativeLayout>

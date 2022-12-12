@@ -11,148 +11,286 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true">
 
-    <EditText
-        android:id="@+id/edUrl"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:hint="url"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/about_db_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Картины:"/>
 
-    <EditText
-        android:layout_below="@+id/edUrl"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/edName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="name"
-        android:inputType="textPersonName"
-        android:textColorHighlight="#5E2323"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edUrl" />
+        <EditText
+            android:id="@+id/edUrl"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about_db_pic"
+            android:ems="10"
+            android:hint="url"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:layout_below="@+id/edName"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/edAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="author"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edName" />
+        <EditText
+            android:layout_below="@+id/edUrl"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="name"
+            android:inputType="textPersonName"
+            android:textColorHighlight="#5E2323"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edUrl" />
 
-    <EditText
-        android:layout_below="@+id/edAuthor"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/edDisc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="description"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edAuthor" />
+        <EditText
+            android:layout_below="@+id/edName"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="author"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edName" />
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_below="@+id/edDisc"
-        android:layout_centerHorizontal="true"
-        android:layout_width="362dp"
-        android:layout_height="246dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edDisc" />
+        <EditText
+            android:layout_below="@+id/edAuthor"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edDisc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="description"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edAuthor" />
 
-    <Button
-        android:id="@+id/button_save"
-        android:layout_below="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="SaveDataToDB"
-        android:text="Save"
-        android:layout_marginLeft="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.932" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_below="@+id/edDisc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="SaveDataToDB"
+            android:text="Save"
+            android:layout_marginLeft="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.932" />
 
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/result"
+            android:layout_below="@+id/edDisc"
             android:layout_marginRight="50dp"
             android:onClick="deleteDataFromDb"
             android:text="Delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_save"
-            android:layout_alignParentRight="true"
-            app:layout_constraintTop_toBottomOf="@+id/result" />
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/about_db_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/delete"
+            android:text="Авторы:"/>
+
+        <EditText
+            android:id="@+id/edAuthorName"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about_db_author"
+            android:ems="10"
+            android:hint="full name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:layout_below="@+id/edAuthorName"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edYearsOfLife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="years of life"
+            android:inputType="textPersonName"
+            android:textColorHighlight="#5E2323"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edUrl" />
+
+        <EditText
+            android:layout_below="@+id/edYearsOfLife"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/PhotoOfAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="url"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edName" />
+
+        <EditText
+            android:layout_below="@+id/PhotoOfAuthor"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/biogr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="biography"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edAuthor" />
+
+
+        <Button
+            android:id="@+id/button_save_auth"
+            android:layout_below="@+id/biogr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="SaveDataToDB_Author"
+            android:text="Save"
+            android:layout_marginLeft="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.932" />
+
+        <Button
+            android:id="@+id/delete_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/biogr"
+            android:layout_marginRight="50dp"
+            android:onClick="deleteDataFromDb_Author"
+            android:text="Delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_save"
+            android:layout_alignParentRight="true" />
+
 
     </RelativeLayout>
 
-
-    <RelativeLayout
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#46BEE6"
+        android:columnCount="4"
+        android:background="@color/my_blue"
         android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goHome"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/home"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Home"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Главная"/>
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/Home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginHorizontal="30sp"
-            android:backgroundTint="#13a15c"
-            android:onClick="goHome"
-            android:text="Главная" />
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/like"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/like"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Избранное"/>
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/DB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerInParent="true"
-            android:layout_toStartOf="@+id/Arhiv"
-            android:layout_toEndOf="@+id/Home"
-            android:backgroundTint="#13a15c"
-            android:onClick="WorkWithBD"
-            android:text="БД" />
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/archive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="OpenArchive"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/archive" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/archive"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Архив"/>
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/Arhiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginHorizontal="30sp"
-            android:backgroundTint="#13a15c"
-            android:onClick="OpenArchive"
-            android:text="Архив" />
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/DB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/database"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:onClick="WorkWithBD" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/DB"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="Данные"/>
+        </RelativeLayout>
 
 
-    </RelativeLayout>
+
+    </GridLayout>
 
 </RelativeLayout>

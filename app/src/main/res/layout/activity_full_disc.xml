@@ -8,14 +8,14 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:id="@+id/upper_bg"
+        android:id="@+id/relativeText"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#46BEE6">
+        android:background="@color/my_blue">
 
         <TextView
             android:id="@+id/Name"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="40dp"
@@ -26,41 +26,73 @@
 
         <TextView
             android:id="@+id/Author"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="70dp"
+            android:layout_below="@+id/Name"
             android:fontFamily="@font/merienda_one"
             android:text="Da Vinci"
             android:textColor="@color/bg"
             android:textSize="14dp" />
 
+
+        <ImageButton
+            android:id="@+id/save_empty"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:src="@drawable/free_icon_heart_shape_14815" />
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/free_icon_hearts_138533"
+            android:visibility="invisible"/>
+
     </RelativeLayout>
 
 
-    <RelativeLayout
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/picture"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_below="@+id/upper_bg"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="-100dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="200dp"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/picture_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:foregroundGravity="center"
-            app:srcCompat="@drawable/ggg" />
-    </RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:civ_border_width="1dp"
+            android:background="@color/my_blue"
+            app:civ_border_color="@color/white"/>
+        <ImageButton
+            android:id="@+id/img_b"
+            android:layout_width="60dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="140dp"
+            android:layout_height="60dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_remove_red_eye_24" />
+
+
+    </FrameLayout>
+
+
 
     <ScrollView
         android:id="@+id/scrollDisc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/picture"
-        android:layout_marginHorizontal="40dp">
+        android:layout_marginHorizontal="2dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -69,6 +101,8 @@
 
             <TextView
                 android:id="@+id/fullDisk"
+                android:textSize="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

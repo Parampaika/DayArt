@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -22,14 +23,11 @@ import java.util.List;
 public class Archive extends ListActivity {
     private PictureAdapter mAdapter;
     private MyBdMeneger myBdMeneger;
-    private String[] url = {}, name = {}, author = {}, disc = {};
+    private String[] url = {}, name = {}, author = {}, disc = {}, like = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myBdMeneger = new MyBdMeneger(this);
-
-        mAdapter = new PictureAdapter(this);
-
         mAdapter = new PictureAdapter(this);
         setListAdapter((ListAdapter) mAdapter);
     }
@@ -45,6 +43,8 @@ public class Archive extends ListActivity {
         author = authors.toArray(new String[0]);
         List<String> discs = myBdMeneger.getALLURLFromDB(MyConstants.DISC);
         disc = discs.toArray(new String[0]);
+        List<String> likes = myBdMeneger.getALLURLFromDB(MyConstants.LIKE);
+        like = likes.toArray(new String[0]);
     }
 
     private class PictureAdapter extends BaseAdapter {
@@ -74,7 +74,7 @@ public class Archive extends ListActivity {
             if (convertView == null)
                 convertView = mLayoutInflater.inflate(R.layout.one_string_archive, null);
 
-            ImageView image = (ImageView) convertView.findViewById(R.id.image_view_icon);
+            ImageButton image = (ImageButton) convertView.findViewById(R.id.image_view_icon);
             Button openInfo = (Button) convertView.findViewById(R.id.openInfo);
             Picasso.with(Archive.this)
                     .load(url[position])
@@ -86,27 +86,37 @@ public class Archive extends ListActivity {
 
             TextView dateTextView = (TextView) convertView.findViewById(R.id.author);
             dateTextView.setText(author[position]);
-            setOnClick_new(openInfo, url[position], name[position], author[position], disc[position]);
+            setOnClick_new(openInfo, url[position], name[position], author[position], disc[position], like[position]);
+            setOnClick_new_image(image, url[position], name[position], author[position], disc[position], like[position]);
             return convertView;
         }
 
 
     }
 
-    private void setOnClick_new(final Button btn, final String url_times, final String name, final String author, final String disc){
+    private void setOnClick_new(final Button btn, final String url_times, final String name, final String author, final String disc, final String like){
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openInfo(url_times, name, author, disc);
+                openInfo(url_times, name, author, disc, like);
             }
         });
     }
-    public void openInfo(final String url, final String name, final String author, final String disc){
+    private void setOnClick_new_image(final ImageButton btn, final String url_times, final String name, final String author, final String disc, final String like){
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openInfo(url_times, name, author, disc, like);
+            }
+        });
+    }
+    public void openInfo(final String url, final String name, final String author, final String disc, final String like){
         Intent intent = new Intent(this, FullDisc.class);
         intent.putExtra("url", url);
         intent.putExtra("name", name);
         intent.putExtra("author", author );
         intent.putExtra("disc", disc);
+        intent.putExtra("likes", like);
         startActivity(intent);
     }
     public void goHome (View v) {
@@ -118,5 +128,4 @@ public class Archive extends ListActivity {
         Intent intent = new Intent(this, WorkWithBD.class);
         startActivity(intent);
     }
-
 }

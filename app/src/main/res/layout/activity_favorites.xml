@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/image_view_icon"
+        android:background="@color/white"
+        android:layout_width="250dp"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+        android:layout_height="250dp"
+        android:src="@drawable/hhh" />
+
+    <LinearLayout
+        android:id="@+id/text_archive"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="TextView1"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="TextView2"
+            android:textSize="10dp"/>
+
+        <Button
+            android:id="@+id/openInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:text="Читать"
+            android:backgroundTint="@color/purple_700"
+            android:textSize="10dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

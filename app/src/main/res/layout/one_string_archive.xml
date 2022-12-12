@@ -4,10 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
 
-    <ImageView
-        android:onClick="openInfo"
+    <ImageButton
         android:id="@+id/image_view_icon"
-        android:layout_width="250dp"
+        android:background="@color/white"
+        android:layout_width="220dp"
+
+
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
         android:layout_height="250dp"
         android:src="@drawable/hhh" />
 
@@ -20,7 +24,7 @@
        <TextView
            android:id="@+id/name"
            android:layout_width="match_parent"
-           android:layout_height="30dp"
+           android:layout_height="wrap_content"
            android:layout_marginTop="20dp"
            android:layout_marginLeft="10dp"
            android:text="TextView1"
@@ -29,7 +33,7 @@
        <TextView
            android:id="@+id/author"
            android:layout_width="match_parent"
-           android:layout_height="30dp"
+           android:layout_height="wrap_content"
            android:layout_marginLeft="10dp"
            android:layout_marginTop="20dp"
            android:text="TextView2"
@@ -37,12 +41,12 @@
 
        <Button
            android:id="@+id/openInfo"
-           android:layout_marginTop="100dp"
-           android:layout_marginLeft="10dp"
            android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
+           android:layout_height="40dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="90dp"
            android:text="Читать"
-           android:backgroundTint="@color/purple_700"
+           android:backgroundTint="@color/my_blue"
            android:textSize="10dp"/>
 
    </LinearLayout>

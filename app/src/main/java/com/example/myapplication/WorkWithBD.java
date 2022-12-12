@@ -13,7 +13,7 @@ import com.example.myapplication.bd.MyConstants;
 
 public class WorkWithBD extends AppCompatActivity {
     private MyBdMeneger myBdMeneger;
-    private EditText edUrl, edName, edAuthor, edDisc;
+    private EditText edUrl, edName, edAuthor, edDisc, edYears, edName_Auth, edPhoto, edBiog;
     private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,34 +24,29 @@ public class WorkWithBD extends AppCompatActivity {
         edAuthor = findViewById(R.id.edAuthor);
         edName = findViewById(R.id.edName);
         edDisc = findViewById(R.id.edDisc);
-        textView = findViewById(R.id.result);
-        textView.setText("");
+
+        edName_Auth = findViewById(R.id.edAuthorName);
+        edYears = findViewById(R.id.edYearsOfLife);
+        edPhoto = findViewById(R.id.PhotoOfAuthor);
+        edBiog = findViewById(R.id.biogr);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         myBdMeneger.Open_db();
-        for (String url : myBdMeneger.getALLURLFromDB(MyConstants.URL)) {
-            textView.append(url + "\n");
-        }
+        //for (String name : myBdMeneger.getALLURLFromDB(MyConstants.NAME)) {
+           // textView.append(name + "\n");
+        //}
     }
 
     public void SaveDataToDB (View view) {
-        textView.setText("");
-        myBdMeneger.Insert_toDb(edUrl.getText().toString(), edName.getText().toString(), edAuthor.getText().toString(), edDisc.getText().toString());
-        for (String url : myBdMeneger.getALLURLFromDB(MyConstants.URL)) {
-            textView.append(url + "\n");
-        }
+        myBdMeneger.Insert_toDb(edUrl.getText().toString(), edName.getText().toString(), edAuthor.getText().toString(), edDisc.getText().toString(), "0");
     }
 
     public void deleteDataFromDb (View view) {
-        textView.setText("");
-        String url_delete = edUrl.getText().toString();
-        myBdMeneger.DeleteStringFromDb(url_delete);
-        for (String url : myBdMeneger.getALLURLFromDB(MyConstants.URL)) {
-            textView.append(url + "\n");
-        }
+        String name_delete = edName.getText().toString();
+        myBdMeneger.DeleteStringFromDb(name_delete);
     }
 
     @Override
@@ -67,5 +62,14 @@ public class WorkWithBD extends AppCompatActivity {
     public void OpenArchive (View v){
         Intent intent = new Intent(this, Archive.class);
         startActivity(intent);
+    }
+
+    public void SaveDataToDB_Author (View view) {
+        myBdMeneger.Insert_toAuthors(edName_Auth.getText().toString(), edYears.getText().toString(), edPhoto.getText().toString(), edBiog.getText().toString());
+    }
+
+    public void deleteDataFromDb_Author (View view) {
+        String name_delete = edName_Auth.getText().toString();
+        myBdMeneger.DeleteStringFromDb_Author(name_delete);
     }
 }

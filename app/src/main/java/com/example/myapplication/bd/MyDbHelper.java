@@ -14,6 +14,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(MyConstants.TABLE_STRUCTURE);
+        sqLiteDatabase.execSQL(MyConstants.TABLE_STRUCTURE_2);
     }
 
     @Override
