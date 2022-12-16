@@ -5,10 +5,12 @@ import static android.icu.text.MessagePattern.ArgType.SELECT;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.loader.content.AsyncTaskLoader;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -22,12 +24,29 @@ import android.widget.TextView;
 
 import com.example.myapplication.bd.MyBdMeneger;
 import com.example.myapplication.bd.MyConstants;
+import com.example.myapplication.utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +59,36 @@ public class MainActivity extends AppCompatActivity {
     Button readFull, readFullAuthor;
     ImageButton save, save_empty;
     private String url, name, author, disk, likes;
+
+    class Museum extends AsyncTask<URL, Void, String> {
+        @Override
+        protected String doInBackground(URL... urls) {
+            String response = null;
+            try {
+                response = NetworkUtils.getResponseFromUrl(urls[0]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(String response) {
+            String new_url = null;
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                //JSONObject objectID = jsonObject.getJSONObject("objectID");
+
+                new_url = jsonObject.getString("primaryImage");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            url = new_url;
+        }
+    }
+
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +111,25 @@ public class MainActivity extends AppCompatActivity {
         photo_of_author = findViewById(R.id.photo_of_author);
 
         Log.d("PATH", "Path: " + myBdMeneger.getDbPath(this, MyConstants.DB_NAME).toString());
+
+        //"https://collectionapi.metmuseum.org/public/collection/v1/objects/1";
+
+        URL generatedUrl = NetworkUtils.generateUrl("100");
+
+        new Museum().execute(generatedUrl);
+
     }
+
+
     @Override
     protected void onResume() {
         super.onResume();
         myBdMeneger.Open_db();
         init();
         LoadDailyPic();
+
+
+
     }
     @Override
     protected void onDestroy() {
@@ -139,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                 count = 1;
             }
             List<String> info = myBdMeneger.getOneStringFromDB(count);
-            url = info.get(0);
+            //url = info.get(0);
             name = info.get(1);
             author = info.get(2);
             disk = info.get(3);
@@ -150,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
             setOnClick(imageView, url);
             name_text.setText(name);
             author_text.setText(author);
-            text_about_pic.setText(disk);
+            //text_about_pic.setText(disk);
 
             setAuthor(author);
 

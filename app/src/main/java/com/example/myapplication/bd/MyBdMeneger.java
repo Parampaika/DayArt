@@ -61,6 +61,27 @@ public class MyBdMeneger {
         return urls;
     }
 
+    public List<String> getStringByName(String name){
+        List<String> urls = new ArrayList<>();
+        String selection =  MyConstants.NAME + " = ?";
+        String[] selectionArgs = { name };
+        Cursor cursor = db.query(
+                MyConstants.TABLE_NAME,   // The table to query
+                null,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+        while(cursor.moveToNext()) {
+            @SuppressLint("Range") String url = cursor.getString(cursor.getColumnIndex(MyConstants.URL));
+            urls.add(url);
+        }
+        cursor.close();
+        return urls;
+    }
+
     public Integer getSizeBD(String name){
         Integer size = 0;
         Cursor cursor = db.query(

@@ -65,7 +65,6 @@ public class FullDisc extends AppCompatActivity {
         disc.setText(this.disc);
         name_text.setText(name);
         author_text.setText(author);
-        disc.setTextSize(26);
         setOnClick(img_b, url);
         save(save_empty, save);
         unsave(save, save_empty);

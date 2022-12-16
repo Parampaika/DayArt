@@ -79,8 +79,9 @@ public class favorites extends ListActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null)
-                convertView = mLayoutInflater.inflate(R.layout.one_string_archive, null);
+                convertView = mLayoutInflater.inflate(R.layout.activity_favorites, null);
 
+            Log.d("TEST", "OK");
             ImageButton image = (ImageButton) convertView.findViewById(R.id.image_view_icon);
             Button openInfo = (Button) convertView.findViewById(R.id.openInfo);
             Picasso.with(favorites.this)
@@ -88,13 +89,16 @@ public class favorites extends ListActivity {
                     .placeholder(R.drawable.loading)
                     .into(image);
 
+
             TextView signTextView = (TextView) convertView.findViewById(R.id.name);
             signTextView.setText(name[position]);
 
             TextView dateTextView = (TextView) convertView.findViewById(R.id.author);
             dateTextView.setText(author[position]);
+
             setOnClick_new(openInfo, url[position], name[position], author[position], disc[position], like[position]);
             setOnClick_new_image(image, url[position], name[position], author[position], disc[position], like[position]);
+
             return convertView;
         }
 
